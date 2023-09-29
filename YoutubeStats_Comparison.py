@@ -1,6 +1,5 @@
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
-import re
 
 # Replace with your own API credentials JSON file path
 credentials_file = 'dk4learning-e4dd99460a33.json'
