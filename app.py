@@ -2,7 +2,7 @@ from flask import Flask, render_template, requests
 import requests
 
 # Set your API key and message
-api_key = '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'
+api_key = ''
 
 app = Flask(__name__)
 
