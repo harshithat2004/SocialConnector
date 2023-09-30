@@ -1,12 +1,12 @@
-from flask import Flask, render_template, requests
-import requests
+from flask import Flask, render_template, request
+import request
 
 # Set your API key and message
 api_key = ''
 
 app = Flask(__name__)
 
-def send_gpt_requests(api_key, message):
+def send_gpt_request(api_key, message):
     headers = {
         'Content-Type': 'application/json',
         'Authorization': f'Bearer {api_key}'
@@ -18,7 +18,7 @@ def send_gpt_requests(api_key, message):
         'messages': [{'role': 'user', 'content': message}]
     }
 
-    response = requests.post(
+    response = request.post(
         'https://api.openai.com/v1/chat/completions',
         headers=headers,
         json=payload
