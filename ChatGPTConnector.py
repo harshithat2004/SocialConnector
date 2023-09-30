@@ -26,7 +26,7 @@ def send_gpt_request(api_key, message):
         raise Exception(f'Request failed with status code {response.status_code}: {response.text}')
 
 # Set your API key and message
-api_key = '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'
+api_key = ''
 
 message = "Give me 5 recipies that can be made using chicken"
 # Send the request and print the response
