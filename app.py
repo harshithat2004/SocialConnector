@@ -1,12 +1,12 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, requests
 import requests
 
 # Set your API key and message
-api_key = ''
+api_key = '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'
 
 app = Flask(__name__)
 
-def send_gpt_request(api_key, message):
+def send_gpt_requests(api_key, message):
     headers = {
         'Content-Type': 'application/json',
         'Authorization': f'Bearer {api_key}'
@@ -28,15 +28,15 @@ def send_gpt_request(api_key, message):
         data = response.json()
         return data['choices'][0]['message']['content']
     else:
-        raise Exception(f'Request failed with status code {response.status_code}: {response.text}')
+        raise Exception(f'Requests failed with status code {response.status_code}: {response.text}')
 
 
 @app.route('/', methods=['GET', 'POST'])
 def chat():
-    if request.method == 'POST':
-        user_input = request.form['user_input']
+    if requests.method == 'POST':
+        user_input = requests.form['user_input']
         # response = call_chatgpt(user_input)
-        response = send_gpt_request(api_key, user_input)
+        response = send_gpt_requests(api_key, user_input)
         user_input = "User Input: " + user_input
         return render_template('index.html', user_input=user_input, response=response)
     return render_template('index.html')
